@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sacs à Langer</title>
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #000000;
+        }
+
+        ::-webkit-scrollbar {
+            width: 15px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: white;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #393525;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: #393525;
+        }
+
+        .title p {
+            font-size: 18px;
+            padding: 10px 0;
+            max-width: 450px;
+            text-align: center;
+            color: #393525;
+        }
+
+         h3 {
+            padding-left: 10px;
+            font-size: 25px;
+            font-weight: bold;
+            color: #000000;
+        }
+
+        .custom-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .custom-img2 {
+            height: 100px;
+            width: 100px;
+        }
+
+        .fa-check,
+        .fa-star {
+            font-size: 25px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 35px;
+            width: 35px;
+            min-width: 35px;
+            min-height: 35px;
+            border-radius: 50%;
+            font-weight: bold;
+            margin: 0 auto 7px;
+            line-height: 1;
+            text-align: center;
+            padding: 0;
+            background-color: rgb(0, 117, 78);
+        }
+
+        .main-section {
+            background-color: #fffaf4;
+            padding: 20px 0;
+        }
+
+        .main-section .row,
+        .Meilleur .row {
+            padding: 20px 0;
+        }
+
+        .les-vie,
+        .Meilleur,
+        .discover {
+            padding: 30px 0;
+        }
+
+        .main-section p {
+            font-size: 17px;
+            text-align: center;
+        }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            border: none;
+            background-color: #fbe8d1;
+        }
+
+        .card-body {
+            flex-grow: 1;
+        }
+
+        .img1 {
+            width: 450px;
+            height: 450px;
+            border-radius: 10px;
+        }
+
+        .img2 {
+            width: 100%;
+            height: 400px;
+            border-radius: 10px;
+        }
+
+        .text div {
+            margin: 30px 0;
+        }
+
+        .text p {
+            font-size: 18px;
+            color: #393525;
+        }
+
+        .text h5 {
+            font-weight: bold;
+            color: #393525;
+            background-color: #fbe8d1;
+            padding: 20px 10px;
+            border-radius: 10px;
+            border-bottom: 4px solid #393525;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .les-vie .row1 {
+            border-bottom: 1px solid #fbe8d1;
+            margin-bottom: 30px;
+            padding: 30px 0;
+        }
+
+        .les-vie .row2 {
+            padding: 30px 0;
+        }
+
+        .le-choix h3 {
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .fa-star {
+            background-color: #918d77;
+            height: 40px;
+            width: 40px;
+        }
+
+        .discover-text p {
+            padding-top: 30px;
+            font-size: 18px;
+            max-width: 700px;
+            color: #393525;
+        }
+
+        .discover {
+            background-color: #fffaf4;
+            padding: 30px 20px;
+        }
+
+        .discover .discover-text h5 {
+            max-width: 1000px;
+        }
+
+        .discover .discover-text p {
+            max-width: 900px;
+            padding-top: 10px;
+            font-size: 16px;
+        }
+
+        .main-btn {
+            background-color: #393525;
+            color: white;
+            padding: 15px;
+            transition: 0.3s;
+        }
+
+        .main-btn:focus,
+        .main-btn:active {
+            outline: none;
+            box-shadow: none;
+        }
+
+        .main-btn:hover {
+            color: white;
+            transform: scale(1.05);
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
+                rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+            background-color: #393525;
+        }
+
+        .responsive-table {
+            overflow-x: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        table {
+            min-width: 1000px;
+            border-spacing: 0;
+        }
+
+        thead td {
+            background-color: #fbe8d1;
+            font-weight: bold;
+        }
+
+        table td {
+            padding: 15px;
+        }
+
+        tbody td {
+            border-bottom: 1px solid #b1a98a;
+            border-left: 1px solid #b1a98a;
+            transition: 0.3s;
+        }
+
+        tbody tr:hover td {
+            background-color: #fbe8d1;
+        }
+
+        table tbody tr td:last-child {
+            border-right: 1px solid #b1a98a;
+        }
+
+        table img {
+            width: 32px;
+            height: 32px;
+            padding: 2px;
+            background-color: white;
+        }
+
+        .projects table img:not(:first-child) {
+            margin-left: -20px;
+        }
+
+        table .label {
+            font-size: 13px;
+        }
+
+        @media (max-width: 768px) {
+            .responsive-table {
+                display: block;
+            }
+
+            .col-lg-3,
+            .col-lg-4 {
+                margin-bottom: 20px;
+            }
+
+            .img1 {
+                width: 100%;
+                height: 350px;
+            }
+
+            .img2 {
+                height: 300px;
+                margin-bottom: 20px;
+            }
+
+            .discover-text p {
+                font-size: 16px;
+            }
+
+            .discover .discover-text h5 {
+                font-size: 16px;
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 991px) {
+            .responsive-table {
+                display: block;
+            }
+
+            .col-lg-3,
+            .col-lg-4 {
+                margin-bottom: 20px;
+            }
+
+            .img1 {
+                width: 100%;
+                height: 400px;
+            }
+
+            .img2 {
+                height: 350px;
+                margin-bottom: 20px;
+            }
+
+            .custom-img {
+                height: 350px;
+
+            }
+        }
+        @media (min-width: 992px) and (max-width: 1199px) {
+            .responsive-table {
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div class="main-section">
+            <div class="container">
+                <div class="d-flex align-items-center flex-column title text-center">
+                    <h3>Les matières des meilleurs sacs à langer</h3>
+                    <p>
+                        Le choix de la matière influence directement le confort, la
+                        résistance et l’entretien du sac à langer .
+                    </p>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <i class="fa-solid fa-check"></i>
+                                <p class="card-text">
+                                    Double gaze de coton : Très douce et légère, offrant un
+                                    toucher agréable tout en restant respirante. Idéale pour les
+                                    parents recherchant un sac souple et naturel.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <i class="fa-solid fa-check"></i>
+                                <p class="card-text">
+                                    Tissu imperméable : Parfait pour affronter les imprévus du
+                                    quotidien, protégeant efficacement le contenu du sac tout en
+                                    étant facile à nettoyer.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <i class="fa-solid fa-check"></i>
+                                <p class="card-text">
+                                    Gaze de coton Effet lin : Apporte une touche intemporelle,
+                                    alliant robustesse et légèreté.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <i class="fa-solid fa-check"></i>
+                                <p class="card-text">
+                                    Imprimé : Une option tendance pour les parents souhaitant
+                                    allier praticité et style audacieux.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="les-vie">
+            <div class="container">
+                <div class="d-flex align-items-center flex-column title text-center">
+                    <h3>Les meilleurs sacs à langer pour chaque mode de vie</h3>
+                </div>
+                <div class="row d-flex justify-content-center row1">
+                    <div class="col-lg-6">
+                        <div class="text">
+                            <h5>
+                                Le sac à langer idéal dépend de votre mode de vie et de vos
+                                besoins spécifiques:
+                            </h5>
+                            <div class="d-flex align-items-start justify-content-center gap-2">
+                                <i class="fa-solid fa-check mb-0"></i>
+
+                                <p>
+                                    Pour un quotidien urbain et des déplacements fréquents en
+                                    ville le Middle ou Comme Un Bonbon offrent un format compact
+                                    et pratique idéal pour un accès rapide aux essentiels.
+                                </p>
+                            </div>
+
+                            <div class="d-flex align-items-start justify-content-center gap-2">
+                                <i class="fa-solid fa-check mb-0"></i>
+
+                                <p>
+                                    Pour les week-ends le 24/48H est parfait pour transporter
+                                    tout le nécessaire sans être encombré.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 d-flex align-items-center justify-content-center">
+                        <img src="img/b.gif" alt="" class="img1" />
+                    </div>
+                </div>
+
+                <div class="row d-flex justify-content-between row2">
+                    <div class="col-lg-6 d-flex align-items-center justify-content-center">
+                        <img src="img/a.png" alt="" class="img2" id="img1" />
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="text">
+                            <h5>
+                                Les sacs à dos et bananes à langer sont parfaits pour les
+                                parents actifs qui ont besoin de garder les mains libres tout
+                                en transportant tout le nécessaire pour bébé.
+                            </h5>
+                            <div class="d-flex align-items-start justify-content-center gap-2">
+                                <i class="fa-solid fa-check mb-0"></i>
+
+                                <p>
+                                    Si vous utilisez une poussette tous les sacs peuvent y être
+                                    suspendus grâces à nos attaches poussettes universelles.
+                                </p>
+                            </div>
+
+                            <div class="d-flex align-items-start justify-content-center gap-2">
+                                <i class="fa-solid fa-check mb-0"></i>
+
+                                <p>
+                                    Le Mini possède même des attaches poussettes intégrées pour
+                                    devenir un véritable organisateur de poussette.
+                                </p>
+                            </div>
+
+                            <div class="d-flex align-items-start justify-content-center gap-2">
+                                <i class="fa-solid fa-check mb-0"></i>
+
+                                <p>
+                                    Ces modèles peuvent être réutilisés comme sacs polyvalents
+                                    accompagnant les parents bien au-delà des premières années
+                                    de bébé.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-section le-choix">
+            <div class="container">
+                <div class="d-flex align-items-center flex-column title text-center">
+                    <h3>
+                        le choix du meilleur sac à langer dépend de plusieurs critères
+                        essentiels :
+                    </h3>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <i class="fa-solid fa-star"></i>
+
+                                <p class="card-text">
+                                    La matière :Elle influence le confort et la durabilité du
+                                    sac.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <i class="fa-solid fa-star"></i>
+
+                                <p class="card-text">
+                                    La contenance :Un format adapté selon la quantité d’affaires
+                                    à transporter.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <i class="fa-solid fa-star"></i>
+
+                                <p class="card-text">
+                                    Le mode de vie : Un sac compact pour les déplacements
+                                    urbains, un modèle spacieux pour les voyages ou au contraire
+                                    minimaliste pour les aventures..
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <i class="fa-solid fa-star"></i>
+                                <p class="card-text">
+                                    Les goûts : Un design qui correspond aux préférences
+                                    esthétiques des parents.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center flex-column discover-text text-center">
+                    <p>
+                        Chez bebel nous proposons une gamme variée pour répondre à tous
+                        ces critères. Découvrez notre collection et trouvez le sac à
+                        langer qui vous accompagnera au quotidien en testant notre quizz
+                        ”.
+                    </p>
+                    <a href="#" class="btn main-btn">Quel sac à langer est fait pour moi ?</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="Meilleur">
+            <div class="container">
+                <div class="d-flex align-items-center flex-column title text-center">
+                    <h3>Meilleur sac à langer : quel Bebel choisir ?</h3>
+                </div>
+                <div class="row g-3">
+                    <div class="col-lg-4">
+                        <img src="img/Article blog (2).png" alt="Sac à langer 1" class="img-fluid custom-img" />
+                    </div>
+                    <div class="col-lg-4">
+                        <img src="img/Article blog (3).png" alt="Sac à langer 2" class="img-fluid custom-img" />
+                    </div>
+                    <div class="col-lg-4">
+                        <img src="img/Article blog (4).png" alt="Sac à langer 3" class="img-fluid custom-img" />
+                    </div>
+                    <div class="col-lg-4">
+                        <img src="img/Article blog (2.png" alt="Sac à langer 4" class="img-fluid custom-img" />
+                    </div>
+                    <div class="col-lg-4">
+                        <img src="img/Article blog (3.png" alt="Sac à langer 5" class="img-fluid custom-img" />
+                    </div>
+                    <div class="col-lg-4">
+                        <img src="img/Article blog (4.png" alt="Sac à langer 6" class="img-fluid custom-img" />
+                    </div>
+                </div>
+                <div class="d-flex align-items-center flex-column discover-text text-center">
+                    <p>
+                        Le meilleur sac à langer doit être un allié du quotidien,
+                        facilitant le transport des affaires de bébé tout en restant
+                        agréable à porter.
+                    </p>
+                </div>
+                <div class="row text-center">
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <i class="fa-solid fa-star"></i>
+                                <p class="card-text">
+                                    Il doit offrir plusieurs compartiments bien organisés, un
+                                    accès rapide aux essentiels et des solutions de rangement
+                                    optimales.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <i class="fa-solid fa-star"></i>
+                                <p class="card-text">
+                                    Son poids doit être adapté, avec une bonne répartition de la
+                                    charge pour éviter les douleurs dorsales.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <i class="fa-solid fa-star"></i>
+                                <p class="card-text">
+                                    Des matériaux solides et résistants sont essentiels pour
+                                    garantir une longue durée de vie, même en cas d’utilisation
+                                    intensive.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row align-items-center justify-content-center text-center">
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <i class="fa-solid fa-star"></i>
+                                <p class="card-text">
+                                    Un design moderne et esthétique permet de l’intégrer
+                                    facilement au quotidien des parents.
+                                </p>
+                                <p style="color: transparent">Un design moderne</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <i class="fa-solid fa-star"></i>
+                                <p class="card-text">
+                                    Un sac évolutif qui accompagne bébé au fil des mois et
+                                    s’adapte à différents usages comme les sorties, les voyages
+                                    et la transition après les couches est un vrai plus.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="discover">
+            <div class="container">
+                <div class="d-flex align-items-center flex-column discover-text text-center">
+                    <h5>
+                        Trouver le meilleur sac à langer est un défi pour de nombreux
+                        parents souhaitant allier praticité confort et style. Ce guide
+                        vous aidera à choisir le modèle parfait selon votre mode de vie
+                        vos préférences et vos attentes.
+                    </h5>
+                    <p>
+                        Découvrez les critères essentiels, les différentes matières et les
+                        meilleurs modèles adaptés à chaque situation.
+                    </p>
+                </div>
+                <div class="responsive-table">
+                    <table class="fs-15 w-full">
+                        <thead>
+                            <tr>
+                                <td>24/48H</td>
+                                <td>Comme un bonbon</td>
+                                <td>Middle</td>
+                                <td>Sac à dos</td>
+                                <td>Mini</td>
+                                <td>Banane</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <img src="img/Article blog (2)2.png" alt="Sac à langer 1"
+                                        class="img-fluid custom-img2" />
+                                </td>
+                                <td>
+                                    <img src="img/Article blog (3)3.png" alt="Sac à langer 2"
+                                        class="img-fluid custom-img2" />
+                                </td>
+                                <td>
+                                    <img src="img/Article blog (4)4.png" alt="Sac à langer 3"
+                                        class="img-fluid custom-img2" />
+                                </td>
+                                <td>
+                                    <img src="img/Article blog (5).png" alt="Sac à langer 4"
+                                        class="img-fluid custom-img2" />
+                                </td>
+                                <td>
+                                    <img src="img/Article blog (6).png" alt="Sac à langer 5"
+                                        class="img-fluid custom-img2" />
+                                </td>
+                                <td>
+                                    <img src="img/Article blog (7).png" alt="Sac à langer 5"
+                                        class="img-fluid custom-img2" />
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>L55 x H27 x P17 cm / L55 x H50 x P17 cm</td>
+                                <td>L40 x H27 x P15 cm</td>
+                                <td>L35 x H24 x P14 cm</td>
+                                <td>L23 x H33 x P16 cm</td>
+                                <td>L32 x H19 x P10 cm</td>
+                                <td>L45 x H20 x P11 cm</td>
+                            </tr>
+
+                            <tr>
+                                <td>25L / 46L</td>
+                                <td>16L</td>
+                                <td>12L</td>
+                                <td>15L</td>
+                                <td>6L</td>
+                                <td>4.4L</td>
+                            </tr>
+
+                            <tr>
+                                <td>Gaze Coton Effet Lin</td>
+                                <td>Double gaze</td>
+                                <td>Gaze de coton Effet lin</td>
+                                <td>Certifié Oeko-Tex</td>
+                                <td>Certifié Oeko-Tex</td>
+                                <td>Certifié Oeko-Tex</td>
+                            </tr>
+
+                            <tr>
+                                <td>5 intérieures, 3 extérieures, 1 passant valise</td>
+                                <td>5 grandes poches dont une zippée</td>
+                                <td>2 plaquées, 2 biberons, 3 extérieures</td>
+                                <td>2 intérieures, 1 extérieure zippée</td>
+                                <td>2 biberons, 2 plaquées, 2 extérieures</td>
+                                <td>1 extérieure zippée</td>
+                            </tr>
+
+                            <tr>
+                                <td>Réglable, passant valise, compatible poussette</td>
+                                <td>Réglable, compatible poussette</td>
+                                <td>Réglable, compatible poussette</td>
+                                <td>Compatible attaches poussette</td>
+                                <td>Attaches poussette intégrées, bandoulière amovible</td>
+                                <td>Compatible attaches poussette</td>
+                            </tr>
+
+                            <tr>
+                                <td>6 couleurs</td>
+                                <td>7 couleurs</td>
+                                <td>6 couleurs</td>
+                                <td>8 couleurs</td>
+                                <td>5 couleurs</td>
+                                <td>13 couleurs</td>
+                            </tr>
+                            <tr>
+                                <td>Effet lin, Velours, Léopard</td>
+                                <td>Collection été</td>
+                                <td>Effet lin, Velours, Léopard</td>
+                                <td>Nomade, Jean, Imper’</td>
+                                <td>Nomade, Jean, Imper’</td>
+                                <td>Comme un bonbon, Nomade, Imper’</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
